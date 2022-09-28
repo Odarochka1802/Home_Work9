@@ -6,32 +6,35 @@ m = 3, n = 2 -> A(m,n) = 29*/
 int n = 0;
 int m = 0;
 
+int n = 0;
+int m = 0;
+
 Console.Write("Введите первое значение: ");
 bool boolN = int.TryParse(Console.ReadLine(), out int numberN);
 Console.Write("Введите второе значение: ");
 bool boolM = int.TryParse(Console.ReadLine(), out int numberM);
 
 //Check 
-if (!boolN || !boolM)
-    Console.WriteLine("Не верно введены значения! Введите число!");
-else
+if (boolN && boolM)
 {
     n = numberN;
     m = numberM;
+    // функция Аккермана
+    int ackermanFunction(int n, int m)
+    {
+        if (n == 0)
+            return m + 1;
+        else
+          if ((n != 0) && (m == 0))
+            return ackermanFunction(n - 1, 1);
+        else
+            return ackermanFunction(n - 1, ackermanFunction(n, m - 1));
+    }
+    int result = ackermanFunction(n, m);
+    Console.WriteLine($"A({n},{m}) = {result}");
 }
 
-
-// функция Аккермана
-int ackermanFunction(int n, int m)
+else
 {
-    if (n == 0)
-        return m + 1;
-    else
-      if ((n != 0) && (m == 0))
-        return ackermanFunction(n - 1, 1);
-    else
-        return ackermanFunction(n - 1, ackermanFunction(n, m - 1));
+    Console.WriteLine("Не верно введены значения! Введите число!");
 }
-int result = ackermanFunction(n, m);
-
-Console.WriteLine($"A({n},{m}) = {result}");
