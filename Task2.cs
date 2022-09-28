@@ -12,12 +12,24 @@ Console.Write("Введите второе значение: ");
 bool boolM = int.TryParse(Console.ReadLine(), out int numberM);
 
 //Check 
-if (!boolN || !boolM)
+if (!boolN)
     Console.WriteLine("Не верно введены значения! Введите число!");
 else
 {
     n = numberN;
+}
+if (!boolM)
+    Console.WriteLine("Не верно введены значения! Введите число!");
+else
+{
     m = numberM;
+}
+int temp = 0;
+if (n > m)
+{
+    temp = n;
+    n = m;
+    m = temp;
 }
 
 //sum of range numbers from recursion
