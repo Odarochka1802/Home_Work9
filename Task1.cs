@@ -17,6 +17,7 @@ if (!boolN)
 else
 {
     n = numberN;
+    printAllNaturalNumbers(n);
 }
 
 
@@ -35,4 +36,3 @@ void printAllNaturalNumbers(int m)
     }
 }
 
-printAllNaturalNumbers(n);
